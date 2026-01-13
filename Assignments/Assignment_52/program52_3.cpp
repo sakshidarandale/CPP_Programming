@@ -6,50 +6,62 @@ using namespace std;
 
 /////////////////////////////////////////////////////////////////////////////////
 //
-// Function Name : Multiplication
-// Input        : Two values of same data type
-// Output       : Returns multiplication of two values
-// Description  : multiplication of  two numbers
-// Author       : Sakshi Ravindra Darandale
-// Date         : 11/01/2026
+// Function Name : AddN
+// Input         : Array of any data type, size of array
+// Output        : Returns addition of all elements
+// Description   : Accepts N elements from array and returns their sum
+// Author        : Sakshi Ravindra Darandale
+// Date          : 11/01/2026
 //
 /////////////////////////////////////////////////////////////////////////////////
+
 template<class T>
-T Multiplication(T no1,T no2)
+T AddN(T *Arr,int iSize)
 {
-   T Ans;
-   
-   Ans=no1 * no2;
-   
-   return Ans; 
+   T Sum;
+   int iCnt=0;
+
+   for(iCnt = 1, Sum = Arr[0]; iCnt < iSize; iCnt++)
+   {
+      Sum=Sum+Arr[iCnt];
+   }
+
+   return Sum; 
 }
 
 /////////////////////////////////////////////////////////////////////////////////
 //
 // Function Name : MainX
-// Input        : Nothing
-// Output       : Displays multiplication result
-// Description  : Accepts two numbers from user and calls Multiplication
-// Author       : Sakshi Ravindra Darandale
-// Date         : 11/01/2026
+// Input         : None
+// Output        : Displays addition of array elements
+// Description   : Accepts array from user and calls AddN function
+// Author        : Sakshi Ravindra Darandale
+// Date          : 11/01/2026
 //
 /////////////////////////////////////////////////////////////////////////////////
 
 template<class T>
 void MainX()
 {
-    T Value1=0;
-    T Value2=0;
+   T iSize=0;
+   T Ans;
+   int iCnt=0;
     
-    cout<<"Enter the first number : ";
-    cin>>Value1;
+   cout<<"Enter the number of elements : \n";
+   cin>>iSize;
     
-    cout<<"Enter the second number : ";
-    cin>>Value2;
-
-    T Ans=Multiplication(Value1,Value2);
+   T *Arr=new T[iSize];
     
-    cout<<"Multiplication is : "<<Ans<<"\n";
+   cout<<"Enter the values : \n";
+    
+   for(iCnt = 0; iCnt < iSize; iCnt++)
+   {
+      cin>>Arr[iCnt];
+   }
+   
+   Ans=AddN(Arr,iSize);
+    
+   cout<<"Addition is : "<<Ans<<"\n";
     
 }
 
@@ -59,7 +71,7 @@ void MainX()
 
 int main()
 {
-    MainX<float>(); 
+    MainX<int>(); 
 
     return 0;
 }

@@ -6,50 +6,66 @@ using namespace std;
 
 /////////////////////////////////////////////////////////////////////////////////
 //
-// Function Name : Multiplication
-// Input        : Two values of same data type
-// Output       : Returns multiplication of two values
-// Description  : multiplication of  two numbers
+// Function Name : Min
+// Input        : Pointer to array of same data type, Number of elements
+// Output       : Returns the minimum value from the array
+// Description  : Accepts an array of values and returns the minimum element.
 // Author       : Sakshi Ravindra Darandale
 // Date         : 11/01/2026
 //
 /////////////////////////////////////////////////////////////////////////////////
+
 template<class T>
-T Multiplication(T no1,T no2)
+T Min(T *Arr,int iSize)
 {
-   T Ans;
-   
-   Ans=no1 * no2;
-   
-   return Ans; 
+   T Min=Arr[0];
+   int iCnt=0;
+
+    for(iCnt = 1; iCnt < iSize; iCnt++)
+    {
+        if(Arr[iCnt]<Min)
+       {
+            Min=Arr[iCnt];
+       }
+    }
+    return Min; 
 }
 
 /////////////////////////////////////////////////////////////////////////////////
 //
 // Function Name : MainX
-// Input        : Nothing
-// Output       : Displays multiplication result
-// Description  : Accepts two numbers from user and calls Multiplication
+// Input        : Number of elements and array values from user
+// Output       : Displays the minimum value from the entered elements
+// Description  : Accepts N elements from user and calls Min() to find
+//                the smallest element 
 // Author       : Sakshi Ravindra Darandale
 // Date         : 11/01/2026
 //
 /////////////////////////////////////////////////////////////////////////////////
 
+
 template<class T>
 void MainX()
 {
-    T Value1=0;
-    T Value2=0;
+   int iSize=0;
+   T Ans;
+   int iCnt=0;
     
-    cout<<"Enter the first number : ";
-    cin>>Value1;
+   cout<<"Enter the number of elements : \n";
+   cin>>iSize;
     
-    cout<<"Enter the second number : ";
-    cin>>Value2;
-
-    T Ans=Multiplication(Value1,Value2);
+   T *Arr=new T[iSize];
     
-    cout<<"Multiplication is : "<<Ans<<"\n";
+   cout<<"Enter the values : \n";
+    
+   for(iCnt = 0; iCnt < iSize; iCnt++)
+   {
+      cin>>Arr[iCnt];
+   }
+   
+   Ans=Min(Arr,iSize);
+    
+   cout<<"Smallest number is : "<<Ans<<"\n";
     
 }
 
@@ -59,7 +75,7 @@ void MainX()
 
 int main()
 {
-    MainX<float>(); 
+    MainX<int>(); 
 
     return 0;
 }

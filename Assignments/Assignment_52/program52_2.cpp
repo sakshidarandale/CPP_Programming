@@ -6,20 +6,32 @@ using namespace std;
 
 /////////////////////////////////////////////////////////////////////////////////
 //
-// Function Name : Multiplication
-// Input        : Two values of same data type
-// Output       : Returns multiplication of two values
-// Description  : multiplication of  two numbers
+// Function Name : Max
+// Input        : Three values of same data type 
+// Output       : Returns the maximum value among the three inputs
+// Description  : Accepts three values and return the maximum value.
 // Author       : Sakshi Ravindra Darandale
 // Date         : 11/01/2026
 //
 /////////////////////////////////////////////////////////////////////////////////
+
 template<class T>
-T Multiplication(T no1,T no2)
+T Max(T no1,T no2,T no3)
 {
    T Ans;
    
-   Ans=no1 * no2;
+   if((no1>no2)&&(no1>no3))
+   {
+      Ans=no1;
+   }
+   else if((no2>no1) && (no2>no3))
+   {
+      Ans=no2;
+   }
+   else
+   {
+      Ans=no3;
+   }
    
    return Ans; 
 }
@@ -28,8 +40,8 @@ T Multiplication(T no1,T no2)
 //
 // Function Name : MainX
 // Input        : Nothing
-// Output       : Displays multiplication result
-// Description  : Accepts two numbers from user and calls Multiplication
+// Output       : Displays maximum value among three numbers.
+// Description  : Accepts three numbers from user and calls Max function.
 // Author       : Sakshi Ravindra Darandale
 // Date         : 11/01/2026
 //
@@ -40,16 +52,20 @@ void MainX()
 {
     T Value1=0;
     T Value2=0;
+    T Value3=0;
     
     cout<<"Enter the first number : ";
     cin>>Value1;
     
     cout<<"Enter the second number : ";
     cin>>Value2;
-
-    T Ans=Multiplication(Value1,Value2);
     
-    cout<<"Multiplication is : "<<Ans<<"\n";
+     cout<<"Enter the third number : ";
+    cin>>Value3;
+
+    T Ans=Max(Value1,Value2,Value3);
+    
+    cout<<"Maximum number is : "<<Ans<<"\n";
     
 }
 
@@ -59,7 +75,7 @@ void MainX()
 
 int main()
 {
-    MainX<float>(); 
+    MainX<int>(); 
 
     return 0;
 }
