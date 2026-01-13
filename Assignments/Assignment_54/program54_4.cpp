@@ -6,50 +6,59 @@ using namespace std;
 
 /////////////////////////////////////////////////////////////////////////////////
 //
-// Function Name : Search
-// Input         : Array of any data type, size of array, value to search.
-// Output        : Returns true if value is found, otherwise false
-// Description   : Searches for a value in the array.
+// Function Name : Reverse
+// Input         : Array of any data type, size of array
+// Output        : Modifies array (reversed order)
+// Description   : Reverses the elements of the array in-place
 // Author        : Sakshi Ravindra Darandale
 // Date          : 12/01/2026
 //
 /////////////////////////////////////////////////////////////////////////////////
 
+
 template<class T>
-bool Search(T *Arr,int iSize,T Value)
+void Reverse(T *Arr,int iSize)
 {
-    int iCnt=0;
-     
-    for(iCnt=0;iCnt<iSize;iCnt++)
+
+    int iStart=0;
+    int iEnd=iSize-1;
+    T temp;
+    
+    while(iStart<iEnd)
     {
-        if(Arr[iCnt]==Value)
-        {
-            return true;
-        }  
+        temp=Arr[iStart];
+        Arr[iStart]=Arr[iEnd];
+        Arr[iEnd]=temp;
+        
+        iStart++;
+        iEnd--;
     }
-    return false;
+
 }
 
 /////////////////////////////////////////////////////////////////////////////////
 //
 // Function Name : MainX
-// Input         : None (user provides array elements, search value, and search type)
-// Output        : Displays whether the value is present or not
-// Description   : It accepts an array from user and call Search functio to check whether element is present or not
+// Input         : None
+// Output        : Displays reversed array
+// Description   : Accepts array from user and calls Reverse function
 // Author        : Sakshi Ravindra Darandale
-// Date          : 13/01/2026
+// Date          : 12/01/2026
 //
 /////////////////////////////////////////////////////////////////////////////////
 
+
 template<class T>
+
 void MainX()
 {
+    int iRet=0;
     int iCnt=0;
+    
     int iSize=0;
-    bool bRet=false;
-    T Value;
     
     cout<<"Enter the number of elements in the array : \n";
+    
     cin>>iSize;
     
     T *Arr=new T[iSize];
@@ -60,21 +69,17 @@ void MainX()
     {
         cin>>Arr[iCnt];
     }
-    
-    cout<<"Enter the value you want to search :";
-    cin>>Value;
-    
-    bRet=Search(Arr,iSize,Value);
 
-    if(bRet==true)
-    {
-        cout <<"Value is present \n";
-    }
-    else
-    {
-        cout <<"Value is not present\n";
-    }
+    Reverse(Arr,iSize);
+
+    cout << "Reversed array is : \n";
     
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        cout << Arr[iCnt] << "\t";
+    }
+    cout << "\n";
+
     delete [] Arr;
 }
 

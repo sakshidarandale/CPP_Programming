@@ -6,38 +6,40 @@ using namespace std;
 
 /////////////////////////////////////////////////////////////////////////////////
 //
-// Function Name : Search
-// Input         : Array of any data type, size of array, value to search.
-// Output        : Returns true if value is found, otherwise false
-// Description   : Searches for a value in the array.
+// Function Name : SumEven
+// Input         : Integer array, size of array
+// Output        : Returns sum of all even elements
+// Description   : Calculates and returns the sum of even numbers in the array
 // Author        : Sakshi Ravindra Darandale
 // Date          : 12/01/2026
 //
 /////////////////////////////////////////////////////////////////////////////////
 
+
 template<class T>
-bool Search(T *Arr,int iSize,T Value)
+T SumEven(T *Arr,int iSize)
 {
     int iCnt=0;
+    T Sum;
      
-    for(iCnt=0;iCnt<iSize;iCnt++)
+    for(iCnt=1,Sum=Arr[0];iCnt<iSize;iCnt++)
     {
-        if(Arr[iCnt]==Value)
+        if(Arr[iCnt] % 2 == 0)
         {
-            return true;
+            Sum=Sum+Arr[iCnt];
         }  
     }
-    return false;
+    return Sum;
 }
 
 /////////////////////////////////////////////////////////////////////////////////
 //
 // Function Name : MainX
-// Input         : None (user provides array elements, search value, and search type)
-// Output        : Displays whether the value is present or not
-// Description   : It accepts an array from user and call Search functio to check whether element is present or not
+// Input         : None (accepts array elements from user)
+// Output        : Displays sum of even and odd elements
+// Description   : Accepts array from user and calls SumEven and SumOdd functions
 // Author        : Sakshi Ravindra Darandale
-// Date          : 13/01/2026
+// Date          : 12/01/2026
 //
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -46,8 +48,7 @@ void MainX()
 {
     int iCnt=0;
     int iSize=0;
-    bool bRet=false;
-    T Value;
+    T Ans;
     
     cout<<"Enter the number of elements in the array : \n";
     cin>>iSize;
@@ -60,21 +61,10 @@ void MainX()
     {
         cin>>Arr[iCnt];
     }
-    
-    cout<<"Enter the value you want to search :";
-    cin>>Value;
-    
-    bRet=Search(Arr,iSize,Value);
+        
+    Ans=SumEven(Arr,iSize);
+    cout<<"The sum of all even elements is :"<<Ans<<"\n";
 
-    if(bRet==true)
-    {
-        cout <<"Value is present \n";
-    }
-    else
-    {
-        cout <<"Value is not present\n";
-    }
-    
     delete [] Arr;
 }
 

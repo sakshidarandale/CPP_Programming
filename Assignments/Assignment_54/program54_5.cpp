@@ -6,38 +6,39 @@ using namespace std;
 
 /////////////////////////////////////////////////////////////////////////////////
 //
-// Function Name : Search
-// Input         : Array of any data type, size of array, value to search.
-// Output        : Returns true if value is found, otherwise false
-// Description   : Searches for a value in the array.
+// Function Name : Min
+// Input         : Array of any data type, size of array
+// Output        : Returns the smallest element from the array
+// Description   : Iterates through the array and finds the minimum element
 // Author        : Sakshi Ravindra Darandale
 // Date          : 12/01/2026
 //
 /////////////////////////////////////////////////////////////////////////////////
 
 template<class T>
-bool Search(T *Arr,int iSize,T Value)
+T Min(T *Arr,int iSize)
 {
     int iCnt=0;
+    T Min;
      
-    for(iCnt=0;iCnt<iSize;iCnt++)
+    for(iCnt=1,Min=Arr[0];iCnt<iSize;iCnt++)
     {
-        if(Arr[iCnt]==Value)
+        if(Arr[iCnt] < Min)
         {
-            return true;
+            Min=Arr[iCnt];
         }  
     }
-    return false;
+    return Min;
 }
 
 /////////////////////////////////////////////////////////////////////////////////
 //
 // Function Name : MainX
-// Input         : None (user provides array elements, search value, and search type)
-// Output        : Displays whether the value is present or not
-// Description   : It accepts an array from user and call Search functio to check whether element is present or not
+// Input         : None 
+// Output        : Displays minimum element from the array
+// Description   : Accepts array from user and calls Min function
 // Author        : Sakshi Ravindra Darandale
-// Date          : 13/01/2026
+// Date          : 12/01/2026
 //
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -46,8 +47,7 @@ void MainX()
 {
     int iCnt=0;
     int iSize=0;
-    bool bRet=false;
-    T Value;
+    T Ans;
     
     cout<<"Enter the number of elements in the array : \n";
     cin>>iSize;
@@ -60,21 +60,10 @@ void MainX()
     {
         cin>>Arr[iCnt];
     }
-    
-    cout<<"Enter the value you want to search :";
-    cin>>Value;
-    
-    bRet=Search(Arr,iSize,Value);
+        
+    Ans=Min(Arr,iSize);
+    cout<<"The smallest element in array is :"<<Ans<<"\n";
 
-    if(bRet==true)
-    {
-        cout <<"Value is present \n";
-    }
-    else
-    {
-        cout <<"Value is not present\n";
-    }
-    
     delete [] Arr;
 }
 
