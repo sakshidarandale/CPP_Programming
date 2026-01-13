@@ -6,31 +6,33 @@ using namespace std;
 
 /////////////////////////////////////////////////////////////////////////////////
 //
-// Function Name : Add
-// Input         : Two values of same data type
-// Output        : Returns addition of the two values
-// Description   : Performs addition of two generic values
+// Function Name : Swap
+// Input         : Two values of same data type 
+// Output        : Swaps the values
+// Description   : Exchanges two generic values using a temporary variable
 // Author        : Sakshi Ravindra Darandale
 // Date          : 12/01/2026
 //
-/////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 template<class T>
-T Add(T no1,T no2)
+void Swap(T &no1,T &no2)
 {
-   T Ans;
+
+   T temp;
    
-   Ans=no1+no2;
-   
-   return Ans;
+   temp=no1;
+   no1=no2;
+   no2=temp;
+  
 }
 
 /////////////////////////////////////////////////////////////////////////////////
 //
 // Function Name : MainX
 // Input         : None
-// Output        : Displays addition of two values
-// Description   : Accepts two values from user and calls Add function
+// Output        : Displays swapped two values
+// Description   : Accepts two values from user and calls Swap function
 // Author        : Sakshi Ravindra Darandale
 // Date          : 12/01/2026
 //
@@ -40,20 +42,17 @@ T Add(T no1,T no2)
 template<class T>
 void MainX()
 {
-    T Ret;
-    T Value1=0;
-    T Value2=0;
+    T Value1;
+    T Value2;
     
-    cout<<"Enter the first number:\n";
-    cin>>Value1;
+    cout<<"Enter the two numbers :\n";
+    cin>>Value1>>Value2;
     
-    cout<<"Enter the second number:\n";
-    cin>>Value2;
+    Swap(Value1,Value2);
     
-    Ret=Add(Value1,Value2);
-    
-    cout<<"The Addition is :"<<Ret<<"\n";
-
+    cout<<"After Swapping \n";
+    cout<<Value1<<" "<<Value2<<"\n";
+  
 }
 
 /////////////////////////////////////////////////////////////////////////////////

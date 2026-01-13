@@ -6,21 +6,21 @@ using namespace std;
 
 /////////////////////////////////////////////////////////////////////////////////
 //
-// Function Name : Add
+// Function Name : Sub
 // Input         : Two values of same data type
-// Output        : Returns addition of the two values
-// Description   : Performs addition of two generic values
+// Output        : Returns substraction of the two values
+// Description   : Performs substraction of two generic values
 // Author        : Sakshi Ravindra Darandale
 // Date          : 12/01/2026
 //
 /////////////////////////////////////////////////////////////////////////////////
 
 template<class T>
-T Add(T no1,T no2)
+T Sub(T no1,T no2)
 {
    T Ans;
    
-   Ans=no1+no2;
+   Ans=no1-no2;
    
    return Ans;
 }
@@ -29,8 +29,8 @@ T Add(T no1,T no2)
 //
 // Function Name : MainX
 // Input         : None
-// Output        : Displays addition of two values
-// Description   : Accepts two values from user and calls Add function
+// Output        : Displays substraction of two values
+// Description   : Accepts two values from user and calls Sub function
 // Author        : Sakshi Ravindra Darandale
 // Date          : 12/01/2026
 //
@@ -50,9 +50,9 @@ void MainX()
     cout<<"Enter the second number:\n";
     cin>>Value2;
     
-    Ret=Add(Value1,Value2);
+    Ret=Sub(Value1,Value2);
     
-    cout<<"The Addition is :"<<Ret<<"\n";
+    cout<<"The Substraction is :"<<Ret<<"\n";
 
 }
 
