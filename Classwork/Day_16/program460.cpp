@@ -10,8 +10,8 @@ int Addition(int No1,int No2)
 
 int main()
 {
-    int i=0,j=0;
-    int Ret=0;
+    float i=0.0f,j=0.0f;
+    float Ret=0.0f;
     
     cout<<"Enter first number :\n";
     cin>>i;
